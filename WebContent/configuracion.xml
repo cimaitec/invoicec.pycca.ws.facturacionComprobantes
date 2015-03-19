@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<xml fileName="configuracion.xml"/>
+	<parametros>
+		<author>Angelo De la Vera Castro</author>
+		<database>
+			<driver>org.postgresql.Driver</driver>
+			<dataSourceName>java:/Invoice</dataSourceName>
+			<xe_curso>
+			    <url>jdbc:postgresql://localhost:5432/Invoice</url>
+				<user>postgres</user>
+				<password>postgres</password>
+			</xe_curso>
+		</database>
+		
+		<consultasbase>
+			<ListadoEmpresa>select "PathCompGenerados" from fac_empresa where "Ruc" = ? </ListadoEmpresa>
+			<!-- HFU -->
+			<EstadoEmpresa>select "isActive" from fac_empresa where "Ruc" = ? </EstadoEmpresa>
+			<EstadoEstablecimiento>select "isActive" from fac_establecimiento where "Ruc" = ? and "CodEstablecimiento" = ? </EstadoEstablecimiento>
+			<EstadoPuntoEmision>select "isActive" from fac_punto_emision where "Ruc" = ? and "CodEstablecimiento" = ? and "CodPuntEmision" = ? and "TipoDocumento" = ? limit 1</EstadoPuntoEmision>
+			<EstadoTipoDocumento>select "isActive" from fac_punto_emision where "Ruc" = ? and "CodEstablecimiento" = ? and "CodPuntEmision" = ? and "TipoDocumento" = ? limit 1</EstadoTipoDocumento>			
+			<EstadoColaDocumento>select "EstadoDocumento" from fac_cola_documentos where "nameFile" = ?</EstadoColaDocumento>
+			<EstadoCabeceraDocumento>select "ESTADO_TRANSACCION" from fac_cab_documentos where ambiente = cast(? as integer) and "Ruc" = ? and "CodEstablecimiento" = ? and "CodPuntEmision" = ? and secuencial = ? and "CodigoDocumento" = ?</EstadoCabeceraDocumento>			
+			<RutaArchivo>select "PathCompGenerados" from fac_empresa where "Ruc" = ? limit 1</RutaArchivo>
+			<!-- HFU -->
+		</consultasbase>
+		
+		<estados>
+			<no_procesar>
+				<autorizado>AT</autorizado>
+				<autorizado>AC</autorizado><!--Autorizado por Contingencia-->
+				<pendientes>CT</pendientes><!--Contingencia-->
+				<pendientes>IN</pendientes><!--Ingresado-->
+				<pendientes>PC</pendientes><!--Pendiente Contingencia-->
+			</no_procesar>
+		</estados>
+		
+		<mensajes>
+		    <WSERROR000>Error</WSERROR000>
+			<WSERROR001>El ruc no existe</WSERROR001>
+			<WSERROR002>El ruc no coincide</WSERROR002>
+			<WSERROR003>Identificacion no es correcta</WSERROR003>
+			<WSERROR004>Establecimiento está inactivo</WSERROR004>
+			<WSERROR005>Establecimiento invalido</WSERROR005>
+			<WSERROR006>Establecimiento no coincide</WSERROR006>
+			<WSERROR007>Punto de emisión está inactivo</WSERROR007>
+			<WSERROR008>Punto de emisión invalido</WSERROR008>
+			<WSERROR009>Punto de emisión no coincide</WSERROR009>
+			<WSERROR010>Tipo de documento no existe</WSERROR010>
+			<WSERROR011>Tipo de documento es invalido</WSERROR011>
+			<WSERROR012>Tipo de documento no coincide</WSERROR012>
+			<WSERROR013>No se ha enviado version de documento</WSERROR013>
+			<WSERROR014>Version de documento no coincide</WSERROR014>
+			<WSERROR015>No se ha enviado informacion en comprobante</WSERROR015>
+			<WSERROR016></WSERROR016>
+			<WSERROR017></WSERROR017>
+			
+			<WSWARN001>Documento ya fue Autorizado, No se puede reprocesar.</WSWARN001>
+			<WSWARN002>Documento ya esta en [ESTADO] y procesandose, Intente mas tarde.</WSWARN002>
+			<WSWARN003>Documento ya esta en [ESTADO]</WSWARN003>
+			<WSWARN004>Documento fue rechazado</WSWARN004>
+			<WSWARN005>Archivo ya existe</WSWARN005>
+			
+			<WSINFO001>RECIBIDO</WSINFO001>
+			<WSINFO002>RECIBIDO</WSINFO002>
+			<WSINFO003>RECIBIDO</WSINFO003>
+			<WSINFO004>RECIBIDO</WSINFO004>
+		</mensajes>
+
+	</parametros>
+	
+</configuration>

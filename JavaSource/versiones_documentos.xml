@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<versiones>
+<versiones_documentos>
+		<version documento="factura" numero="1.0.0" tipo_documento="01" ruta_xsd="/usr/share/jboss-as/bin/xsdCima/1_0_0" >xsdCima/1_0_0/factura.xsd</version>
+		<version documento="factura" numero="1.1.0" tipo_documento="01" ruta_xsd="/usr/share/jboss-as/bin/xsdCima/1_1_0" >xsdCima/1_1_0/factura.xsd</version>
+		
+		<version documento="notaCredito" numero="1.0.0" tipo_documento="04" ruta_xsd="/usr/share/jboss-as/bin/xsdCima/1_0_0" >xsdCima/1_0_0/notaCredito.xsd</version>
+		<version documento="notaCredito" numero="1.1.0" tipo_documento="04" ruta_xsd="/usr/share/jboss-as/bin/xsdCima/1_1_0" >xsdCima/1_1_0/notaCredito.xsd</version>
+		
+		<version documento="notaDebito" numero="1.0.0" tipo_documento="05" ruta_xsd="/usr/share/jboss-as/bin/xsdCima/1_0_0" >xsdCima/1_0_0/notaDebito.xsd</version>
+		<version documento="notaDebito" numero="1.1.0" tipo_documento="05" ruta_xsd="/usr/share/jboss-as/bin/xsdCima/1_1_0" >xsdCima/1_1_0/notaDebito.xsd</version>
+		
+		<version documento="guiaRemision" numero="1.0.0" tipo_documento="06" ruta_xsd="/usr/share/jboss-as/bin/xsdCima/1_0_0" >xsdCima/1_0_0/guiaRemision.xsd</version>
+		<version documento="guiaRemision" numero="1.1.0" tipo_documento="06" ruta_xsd="/usr/share/jboss-as/bin/xsdCima/1_1_0" >xsdCima/1_1_0/guiaRemision.xsd</version>
+		
+		<version documento="comprobanteRetencion" numero="1.0.0" tipo_documento="07" ruta_xsd="/usr/share/jboss-as/bin/xsdCima/1_0_0" >xsdCima/1_0_0/comprobanteRetencion.xsd</version>
+		<version documento="comprobanteRetencion" numero="1.1.0" tipo_documento="07" ruta_xsd="/usr/share/jboss-as/bin/xsdCima/1_1_0">xsdCima/1_1_0/comprobanteRetencion.xsd</version>
+</versiones_documentos>
+</versiones>

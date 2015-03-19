@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<xml fileName="configuracion.xml"/>
+	<parametros>
+		<author>Angelo De la Vera Castro</author>
+		<!--  
+		<database>
+			<driver>org.postgresql.Driver</driver>
+			<xe_curso>
+			    <url>jdbc:postgresql://192.168.32.22:5432/fac_electronica</url>			    
+				<user>postgres</user>
+				<password>123456</password>				
+			</xe_curso>
+		</database>
+		-->
+		
+		<database>
+			<driver>org.postgresql.Driver</driver>
+			<xe_curso>
+			    <url>jdbc:postgresql://localhost:5432/fac_electronicaDMIRO</url>			    
+				<user>fac_electronica</user>
+				<password>fac_electronica777</password>
+			</xe_curso>
+		</database>
+		
+		<consultasbase>
+			<ListadoEmpresa>select "PathCompGenerados" from fac_empresa where "Ruc" = ? </ListadoEmpresa>
+			
+			<!-- HFU -->
+			<EstadoEmpresa>select "isActive" from fac_empresa where "Ruc" = ? </EstadoEmpresa>
+			<EstadoEstablecimiento>select "isActive" from fac_establecimiento where "Ruc" = ? and "CodEstablecimiento" = ? </EstadoEstablecimiento>
+			<EstadoPuntoEmision>select "isActive" from fac_punto_emision where "Ruc" = ? and "CodEstablecimiento" = ? and "CodPuntEmision" = ? and "TipoDocumento" = ? limit 1</EstadoPuntoEmision>
+			<EstadoTipoDocumento>select "isActive" from fac_punto_emision where "Ruc" = ? and "CodEstablecimiento" = ? and "CodPuntEmision" = ? and "TipoDocumento" = ? limit 1</EstadoTipoDocumento>
+			
+			<EstadoColaDocumento>select "EstadoDocumento" from fac_cola_documentos where "nameFile" = ?</EstadoColaDocumento>
+			<EstadoBitacoraDocumento>select "ESTADO_TRANSACCION" from fac_bitacora_documentos where ambiente = cast(? as integer) and "Ruc" = ? and "CodEstablecimiento" = ? and "CodPuntEmision" = ? and secuencial = ?</EstadoBitacoraDocumento>
+			
+			<RutaArchivo>select "PathCompGenerados" from fac_empresa where "Ruc" = ? limit 1</RutaArchivo>
+			
+			<!-- HFU -->
+		</consultasbase>
+		<versiones_documentos>
+			<version documento="factura" numero="1.0.0" tipo_documento="01" ruta_xsd="C:\jboss-as-7.1.1.Final\bin\xsdCima\1_0_0" >factura.xsd</version>
+			<version documento="factura" numero="1.1.0" tipo_documento="01" ruta_xsd="C:\jboss-as-7.1.1.Final\bin\xsdCima\1_1_0" >factura.xsd</version>	
+		</versiones_documentos>
+	</parametros>
+</configuration>
